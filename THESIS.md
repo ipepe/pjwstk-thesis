@@ -1,8 +1,8 @@
 # Pytanie:
 ### Czy Warszawa posiada wystarczającą ilość zgeolokalizowanych punktów dostępu bezprzewodowego internetu aby nawigować po niej bez użycia GPSu?
 
-Jakiś tekst
 
-```ruby
-puts "Hello World!"
-```
+ * Problemy z serializacją obiektów
+ * Sposób przetrworzenia i serwowania danych dla heatmapy
+ * Problemy struktury przechowywania i przetwarzania danych na serwer
+ * Problem lokalizowania accesspointa na podstawie posiadanych danych (obrazki)
