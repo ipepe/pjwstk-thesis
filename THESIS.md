@@ -36,3 +36,9 @@
 * sroda kolo 12
 
 # Wyrzucac accespointy ktore sa telefonami/androidami/iosami ale tez Huawei MiFi
+
+
+# Apliakacja Androidowa
+ * Android Studio v2.3.1
+ * Gradle 2.1.3
+ * Android SDK 23.0.3
