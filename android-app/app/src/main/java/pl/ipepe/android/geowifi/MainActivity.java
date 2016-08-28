@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.activeandroid.ActiveAndroid;
 
@@ -20,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class MainActivity extends ActivityWithSettings {
+public class MainActivity extends AppCompatActivity {
 
     ListView list_view;
     TextView text_view;
@@ -32,16 +31,16 @@ public class MainActivity extends ActivityWithSettings {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
-        list_view =(ListView)findViewById(R.id.listView);
-        text_view =(TextView)findViewById(R.id.textView);
+        list_view = (ListView) findViewById(R.id.listView);
+        text_view = (TextView) findViewById(R.id.textView);
 
-        wifi_manager = (WifiManager)getSystemService(Context.WIFI_SERVICE);
+        wifi_manager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
         wifi_scan_reciever = new WifiScanReceiver();
         startWifiScan();
 
     }
 
-    public void startWifiScan(){
+    public void startWifiScan() {
         wifi_manager.startScan();
     }
 
@@ -61,12 +60,12 @@ public class MainActivity extends ActivityWithSettings {
             text_view.setText(String.format("Last scan time: %s", new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime())));
 
             wifis = new ArrayList<String>();
-            if (wifiScanList.size() == 0){
+            if (wifiScanList.size() == 0) {
                 wifis.add("Brak sieci : (");
-            }else {
+            } else {
                 ActiveAndroid.beginTransaction();
                 try {
-                    for(ScanResult wifi : wifiScanList) {
+                    for (ScanResult wifi : wifiScanList) {
                         WifiObservation wifiObservation = new WifiObservation(wifi);
                         wifis.add(wifiObservation.toString());
                         wifiObservation.save();
@@ -76,7 +75,8 @@ public class MainActivity extends ActivityWithSettings {
                     ActiveAndroid.endTransaction();
                 }
             }
-            list_view.setAdapter(new ArrayAdapter<String>(getApplicationContext(),R.layout.row,wifis));
+            list_view.setAdapter(new ArrayAdapter<String>(getApplicationContext(), R.layout.row, wifis));
             wifi_manager.startScan();
         }
     }
+}
