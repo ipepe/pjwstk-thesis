@@ -38,10 +38,16 @@
 # Wyrzucac accespointy ktore sa telefonami/androidami/iosami ale tez Huawei MiFi
 
 
+# adb wifi connection
+~/android-sdk-macosx/platform-tools/adb kill-server
+~/android-sdk-macosx/platform-tools/adb devices
+~/android-sdk-macosx/platform-tools/adb tcpip 5555
+~/android-sdk-macosx/platform-tools/adb connect 192.168.0.50:5555
+
+
 # Apliakacja Androidowa
  * Android Studio v2.3.1
  * Gradle 2.1.3
- * Android SDK 23.0.3
  * com.michaelpardo:activeandroid:3.1.0
 
 Wybrałem bibliotekę ActiveAndroid jako element Object-Relational Mapping (ORM) ze względu na swoje podobieństwo do ActiveRecord ze świata języka programowania Ruby oraz ze względu na użycie bazy SQLite która jest popularnym rozwiązaniem na Androidzie.
