@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Geo WiFi</string>
+    <string name="wifi_scan_text">Last WiFi scan</string>
+    <string name="gps_scan_text">Last GPS location</string>
 </resources>

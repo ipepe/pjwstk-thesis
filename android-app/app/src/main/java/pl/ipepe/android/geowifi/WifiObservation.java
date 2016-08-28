@@ -1,6 +1,7 @@
 package pl.ipepe.android.geowifi;
 
 import android.annotation.TargetApi;
+import android.location.Location;
 import android.net.wifi.ScanResult;
 import android.os.Build;
 import android.os.SystemClock;
@@ -35,11 +36,17 @@ public class WifiObservation extends Model {
     @Column(name = "channel_frequency")
     public int channel_frequency;
 
+    @Column(name = "latitude")
+    public double latitude;
+
+    @Column(name = "longitude")
+    public double longitude;
+
     public WifiObservation() {
         super();
     }
 
-    public WifiObservation(ScanResult scanResult){
+    public WifiObservation(ScanResult scanResult, Location location){
         super();
         this.ssid = scanResult.SSID;
         this.bssid = scanResult.BSSID;
@@ -47,6 +54,8 @@ public class WifiObservation extends Model {
         this.capabilities = scanResult.capabilities;
         this.seen_at = new Date();
         this.channel_frequency = scanResult.frequency;
+        this.latitude = location.getLatitude();
+        this.longitude = location.getLongitude();
     }
 
     @Override
