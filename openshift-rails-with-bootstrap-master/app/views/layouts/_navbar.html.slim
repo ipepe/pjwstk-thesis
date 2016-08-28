@@ -1,0 +1,25 @@
+nav.navbar.navbar-inverse
+  .container-fluid
+    .navbar-header
+      = link_to root_path, class:"navbar-brand"
+        .inline
+          img src="/favicon.svg"
+          .inline = I18n.t('application.title')
+      - if true
+        /@user_signed_in?
+        ul.nav.navbar-nav
+          li
+            = link_to '/'
+              span.glyphicon.glyphicon-user
+              = I18n.t('example_link.to_index')
+    /ul.nav.navbar-nav.navbar-right
+    /  - if user_signed_in?
+    /    li
+    /      = link_to destroy_user_session_path
+    /        span.glyphicon.glyphicon-log-out
+    /        = I18n.t('links.devise.logout') + ' ' + current_user.label
+    /  - else
+    /    li
+    /      = link_to new_user_session_path
+    /        span.glyphicon.glyphicon-log-in
+    /        = I18n.t('links.devise.login')
