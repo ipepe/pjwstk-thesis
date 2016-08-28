@@ -60,3 +60,10 @@
 Wybrałem bibliotekę ActiveAndroid jako element Object-Relational Mapping (ORM) ze względu na swoje podobieństwo do ActiveRecord ze świata języka programowania Ruby oraz ze względu na użycie bazy SQLite która jest popularnym rozwiązaniem na Androidzie.
 
 Lista wersji androida sdk i popularny kod.
+
+
+W pierwszym etapie, skupiłem się na skanowaniu wifi oraz na pracy z (Klasa skanująca) oraz ScanResult z pakietu wifi. Zastosowałem prosty linear layout w wersji horyzontalnej. Gdy już miałem wyniki skanowania, to stwierdziłem że trzeba je zapisać w bazie danych korzystając z biblioteki ActiveAndroid. Gdy już skanowanie oraz zapis do bazy danych mamy z głowy, to możemy przejść do bieżącej lokalizacji. W tej kwestii skorzystałem z SmartLocation w trybie pracy Navigate oraz continious. Trzeba pamiętać że takie ustawienie jest niekorzystne dla czasu pracy na baterii. Dodatkowo do widoku LinearLayout dodałem flagę "android wake lock flag" żeby ekran nie usypiał się.
+
+W kolejnym etapie aplikacji mobilnej można się skupić na dodaniu:
+ * widoku mapy
+ * przeniesieniu skanowania wifi do BackgroundService
