@@ -76,4 +76,16 @@ Etap drugi możemy podzielić na następujące punkty:
  * możliwość usuwania wyexportowanych danych (oszczędność miejsca na urządzeniu)
  * przyjęcie przekazanych danych na serwerze rails.
 
- 
+## Denormalizacja danych
+Ze względu na cechę badawczą pracy oraz na proste podejście do problemu, zdecydowałem się na zdenormalizowanie danych w bazie danych aplikacji mobilnej.
+
+Dane zdenormalizowane będą zajmować więcej miejsca ale umożliwą na dokładniejsze lokalizowanie miejsca w którym jest ustawiony accesspoint.
+
+Wszystkie dane będą zapisane w pojedyńczej tabeli. Problem jaki powstaje poprzez taki stan schematu bazy danych jest to, żeby znaleźć, które sieci wifi były znalezione w konkretnym skanie, trzeba szukać sieci o takiej samej wartości seen_at.
+
+
+## Słownik
+ORM
+accesspoint
+wifi
+flaga - boolean true/false
