@@ -67,3 +67,13 @@ W pierwszym etapie, skupiłem się na skanowaniu wifi oraz na pracy z (Klasa ska
 W kolejnym etapie aplikacji mobilnej można się skupić na dodaniu:
  * widoku mapy
  * przeniesieniu skanowania wifi do BackgroundService
+
+W tym momencie możemy śmiało zakończyć etap pierwszy. W etapie drugim skupię się na przekazaniu danych do serwera.
+Etap drugi możemy podzielić na następujące punkty:
+ * ustalenie formatu przekazywanych danych
+ * zmodyfikowanie modelu WifiObservation poprzez dodanie flagi exported
+ * utworzenie odpowiednich akcji i widoków w aplikacji mobilnej (konfigurowalny url serwera, przycisk do exportu)
+ * możliwość usuwania wyexportowanych danych (oszczędność miejsca na urządzeniu)
+ * przyjęcie przekazanych danych na serwerze rails.
+
+ 
