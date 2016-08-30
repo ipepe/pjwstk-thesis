@@ -1,5 +1,6 @@
 package pl.ipepe.android.geowifi;
 
+import android.content.Context;
 import android.location.Location;
 import android.net.wifi.ScanResult;
 
@@ -8,7 +9,12 @@ import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 import com.activeandroid.query.Select;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Date;
+import java.util.List;
 
 @Table(name = "wifi_observations")
 public class WifiObservation extends Model {
@@ -57,6 +63,22 @@ public class WifiObservation extends Model {
         this.exported = false;
     }
 
+    public JSONObject toJson(){
+        try{
+            return new JSONObject()
+                    .accumulate("ssid", this.ssid)
+                    .accumulate("bssid", this.bssid)
+                    .accumulate("signal_level", this.signal_level)
+                    .accumulate("capabilities",this.capabilities)
+                    .accumulate("seen_at", this.seen_at)
+                    .accumulate("channel_frequency", this.channel_frequency)
+                    .accumulate("latitude",this.latitude)
+                    .accumulate("longitude", this.longitude);
+        }catch(JSONException ex){
+            return null;
+        }
+    }
+
     @Override
     public String toString(){
         return String.format("WO: %d %s %s", this.signal_level, this.ssid, this.bssid);
@@ -64,5 +86,15 @@ public class WifiObservation extends Model {
 
     public static int count(){
         return new Select().from(WifiObservation.class).execute().size();
+    }
+
+    public static void exportToServer(Context context) {
+        String url = "http://geowifi.ipepe.pl/api/v1/wifi_data_receiver";
+        JSONArray array = new JSONArray();
+        List<WifiObservation> wifi_observation_list = new Select().from(WifiObservation.class).execute();
+        for (WifiObservation wo: wifi_observation_list) {
+            array.put(wo.toJson());
+        }
+        new HttpPostTask(url, array.toString(), context).execute();
     }
 }

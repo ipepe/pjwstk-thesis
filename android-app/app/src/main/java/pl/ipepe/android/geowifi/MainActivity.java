@@ -9,6 +9,8 @@ import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -76,6 +78,25 @@ public class MainActivity extends AppCompatActivity {
         startGpsListener();
         registerReceiver(wifi_scan_reciever, new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
         super.onResume();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId()) {
+            case R.id.map:
+                WifiObservation.exportToServer(this);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private class GpsLocationListener implements OnLocationUpdatedListener {
