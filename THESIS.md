@@ -60,3 +60,6 @@
 Wybrałem bibliotekę ActiveAndroid jako element Object-Relational Mapping (ORM) ze względu na swoje podobieństwo do ActiveRecord ze świata języka programowania Ruby oraz ze względu na użycie bazy SQLite która jest popularnym rozwiązaniem na Androidzie.
 
 Lista wersji androida sdk i popularny kod.
+
+
+Dopiszmy jeszcze, sprawdzenie czy pozycja jest aktualna. Ja przyjmuje, ze jak pozycja starsza niz 10 sekund to juz za duzo.
