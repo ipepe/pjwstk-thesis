@@ -2,16 +2,19 @@ package pl.ipepe.android.geowifi;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.location.Location;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -92,7 +95,21 @@ public class MainActivity extends AppCompatActivity {
     {
         switch (item.getItemId()) {
             case R.id.map:
-                WifiObservation.exportToServer(this);
+                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                final EditText editTextView = new EditText(this);
+                editTextView.setText("http://geowifi.ipepe.pl/api/v1/wifi_data_receiver");
+                alert.setCancelable(true);
+                alert.cancel
+                alert.setTitle("Cofirm server address:");
+                alert.setView(editTextView);
+                alert.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        WifiObservation.exportToServer(getApplicationContext(), editTextView.getText().toString());
+                    }
+                });
+
+
+                alert.show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

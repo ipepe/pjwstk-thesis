@@ -88,8 +88,7 @@ public class WifiObservation extends Model {
         return new Select().from(WifiObservation.class).execute().size();
     }
 
-    public static void exportToServer(Context context) {
-        String url = "http://geowifi.ipepe.pl/api/v1/wifi_data_receiver";
+    public static void exportToServer(Context context, String url) {
         JSONArray array = new JSONArray();
         List<WifiObservation> wifi_observation_list = new Select().from(WifiObservation.class).execute();
         for (WifiObservation wo: wifi_observation_list) {
