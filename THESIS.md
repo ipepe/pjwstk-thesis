@@ -89,3 +89,8 @@ ORM
 accesspoint
 wifi
 flaga - boolean true/false
+
+
+# wstep
+
+Skad pomysl na badanie tematu sieci wifi? Technologia ta juz rozprzestrzenila sie na calym swiecie z ogromnym sukcesem. Więc można by postawić tezę, że w tym obszarze nie czeka na nas nic interesującego. Jednak dopiero teraz gdy punkty dostępu są rozprzestrzenione na skalę masową (w pojedynczym mieszkaniu bloku w zasięgu są dziesiątki a czasem nawet setki wykrytych sieci wifi). 
