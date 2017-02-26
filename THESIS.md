@@ -91,10 +91,8 @@ wifi
 flaga - boolean true/false
 
 
-<<<<<<< HEAD
+Dopiszmy jeszcze, sprawdzenie czy pozycja jest aktualna. Ja przyjmuje, ze jak pozycja starsza niz 10 sekund to juz za duzo.
+
 # wstep
 
-Skad pomysl na badanie tematu sieci wifi? Technologia ta juz rozprzestrzenila sie na calym swiecie z ogromnym sukcesem. Więc można by postawić tezę, że w tym obszarze nie czeka na nas nic interesującego. Jednak dopiero teraz gdy punkty dostępu są rozprzestrzenione na skalę masową (w pojedynczym mieszkaniu bloku w zasięgu są dziesiątki a czasem nawet setki wykrytych sieci wifi). 
-=======
-Dopiszmy jeszcze, sprawdzenie czy pozycja jest aktualna. Ja przyjmuje, ze jak pozycja starsza niz 10 sekund to juz za duzo.
->>>>>>> 0df6d2bdc24b057cb0a869c86fe62cf9499d199e
+Skad pomysl na badanie tematu sieci wifi? Technologia ta juz rozprzestrzenila sie na calym swiecie z ogromnym sukcesem. Więc można by postawić tezę, że w tym obszarze nie czeka na nas nic interesującego. Jednak dopiero teraz gdy punkty dostępu są rozprzestrzenione na skalę masową (w pojedynczym mieszkaniu bloku w zasięgu są dziesiątki a czasem nawet setki wykrytych sieci wifi).
